@@ -1,5 +1,5 @@
 <template>
-  <Html class="trello">
+  <Html class="bg-emerald-500">
     <div>
       <NuxtPage />
     </div>

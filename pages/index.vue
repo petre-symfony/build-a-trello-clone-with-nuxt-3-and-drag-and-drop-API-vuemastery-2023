@@ -6,6 +6,7 @@
   const newColumnName = ref('');
 
   const route = useRoute();
+  const router = useRouter();
 
   const isModalOpen = computed(() => {
     return route.name === 'index-tasks-id';
@@ -14,6 +15,10 @@
   function addColumn() {
     boardStore.addColumn(newColumnName.value);
     newColumnName.value = '';
+  }
+
+  function closeModal() {
+    router.push('/');
   }
 </script>
 
@@ -36,12 +41,8 @@
         />
       </UContainer>
     </main>
-    <div v-show="isModalOpen" class="task-bg">
+    <div v-show="isModalOpen" class="task-bg" @click.self="closeModal">
       <NuxtPage :key="route.fullPath"/>
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>

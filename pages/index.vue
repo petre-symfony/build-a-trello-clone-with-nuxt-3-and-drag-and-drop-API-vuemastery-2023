@@ -7,7 +7,9 @@
 
   const route = useRoute();
 
-  const isModalOpen = ref(false);
+  const isModalOpen = computed(() => {
+    return route.name ===
+  });
   
   function addColumn() {
     boardStore.addColumn(newColumnName.value);

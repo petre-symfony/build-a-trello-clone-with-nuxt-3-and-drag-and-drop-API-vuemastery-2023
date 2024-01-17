@@ -10,7 +10,8 @@
 <template>
   <div class="task-wrapper">
     <div class="task-view">
-      <h1>Page: {{ task }}</h1>
+      <h1>{{ task.name }}</h1>
+      <p>{{ task.description }}</p>
     </div>
   </div>
 </template>

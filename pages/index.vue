@@ -16,14 +16,14 @@
   <div class="boarrd-wrapper">
     <main class="board">
       <UContainer v-for="column in boardStore.board.columns" :key="column.name" class="column">
-        <div class="column-header">
+        <div class="column-header mb-4">
           <div>
             <UInput v-if="editNameState" type="text" v-model="column.name" />
-            <h2 v-else class="mb-4">{{ column.name }}</h2>
+            <h2 v-else>{{ column.name }}</h2>
           </div>
           <div>
-            <button>Edit</button>
-            <button>Delete</button>
+            <UButton icon="i-heroicons-pencil-square" class="mr-2"/>
+            <UButton icon="i-heroicons-trash" color="red"/>
           </div>
         </div>
         <ul>

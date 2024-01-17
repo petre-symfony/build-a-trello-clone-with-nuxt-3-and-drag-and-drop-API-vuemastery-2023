@@ -8,7 +8,7 @@
   const route = useRoute();
 
   const isModalOpen = computed(() => {
-    return route.name ===
+    return false;
   });
   
   function addColumn() {

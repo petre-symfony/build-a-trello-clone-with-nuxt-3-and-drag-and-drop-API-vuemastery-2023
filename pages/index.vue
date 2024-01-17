@@ -22,7 +22,11 @@
             <h2 v-else>{{ column.name }}</h2>
           </div>
           <div>
-            <UButton icon="i-heroicons-pencil-square" class="mr-2"/>
+            <UButton
+                icon="i-heroicons-pencil-square"
+                class="mr-2"
+                @click="editNameState = !editNameState"
+            />
             <UButton icon="i-heroicons-trash" color="red"/>
           </div>
         </div>

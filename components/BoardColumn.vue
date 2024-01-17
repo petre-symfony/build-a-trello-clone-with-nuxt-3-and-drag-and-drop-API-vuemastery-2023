@@ -1,6 +1,6 @@
 <script setup>
  import { useBoardStore } from "~/store/boardStore";
- 
+
   defineProps({
     column: {
       type: Object,

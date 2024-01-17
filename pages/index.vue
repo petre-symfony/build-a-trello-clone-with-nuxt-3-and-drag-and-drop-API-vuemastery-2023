@@ -16,7 +16,7 @@
     <main class="board">
       <BoardColumn
           v-for="(column, columnIndex) in boardStore.board.columns"
-          :key="column.name"
+          :key="column.id"
           :column="column"
           :columnIndex="columnIndex"
       />

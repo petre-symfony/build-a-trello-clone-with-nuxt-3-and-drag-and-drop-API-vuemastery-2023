@@ -8,7 +8,7 @@
   const route = useRoute();
 
   const isModalOpen = computed(() => {
-    return false;
+    return route.name === 'index-tasks-id';
   });
   
   function addColumn() {

@@ -18,8 +18,8 @@
           </li>
         </ul>
       </UContainer>
-      <UContainer>
-        <input type="text" placeholder="Create new column">
+      <UContainer class="column">
+        <UInput type="text" placeholder="Create new column" icon="i-heroicons-plus-circle-solid"/>
       </UContainer>
     </main>
   </div>

@@ -30,7 +30,9 @@
         />
       </UContainer>
     </main>
-    <div class="task-bg">TASK MODAL</div>
+    <div class="task-bg">
+      <NuxtPage />
+    </div>
   </div>
 </template>
 

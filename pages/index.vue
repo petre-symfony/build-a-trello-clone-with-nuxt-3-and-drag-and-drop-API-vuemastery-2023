@@ -18,6 +18,9 @@
           </li>
         </ul>
       </UContainer>
+      <UContainer>
+        <input type="text" placeholder="Create new column">
+      </UContainer>
     </main>
   </div>
 </template>

@@ -10,12 +10,16 @@
     boardStore.addColumn(newColumnName.value);
     newColumnName.value = '';
   }
+
+  function deleteColumn(columnIndex)  {
+    boardStore.deleteColumn(columnIndex);
+  }
 </script>
 
 <template>
   <div class="boarrd-wrapper">
     <main class="board">
-      <UContainer v-for="column in boardStore.board.columns" :key="column.name" class="column">
+      <UContainer v-for="(column, columnIndex) in boardStore.board.columns" :key="column.name" class="column">
         <div class="column-header mb-4">
           <div>
             <UInput v-if="editNameState" type="text" v-model="column.name" />
@@ -27,7 +31,10 @@
                 class="mr-2"
                 @click="editNameState = !editNameState"
             />
-            <UButton icon="i-heroicons-trash" color="red"/>
+            <UButton
+                icon="i-heroicons-trash" color="red"
+                @click="deleteColumn(columnIndex)"
+            />
           </div>
         </div>
         <ul>

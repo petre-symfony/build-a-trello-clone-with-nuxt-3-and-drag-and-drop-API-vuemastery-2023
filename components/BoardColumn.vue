@@ -1,4 +1,6 @@
 <script setup>
+ import { useBoardStore } from "~/store/boardStore";
+ 
   defineProps({
     column: {
       type: Object,
@@ -9,6 +11,13 @@
       required: true
     }
   })
+
+  const boardStore = useBoardStore();
+  const editNameState = ref(false);
+
+  function deleteColumn(columnIndex)  {
+    boardStore.deleteColumn(columnIndex);
+  }
 </script>
 
 <template>

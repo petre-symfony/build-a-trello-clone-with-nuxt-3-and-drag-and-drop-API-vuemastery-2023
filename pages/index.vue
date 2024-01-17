@@ -4,15 +4,10 @@
   const boardStore = useBoardStore();
 
   const newColumnName = ref('');
-  const editNameState = ref(false);
 
   function addColumn() {
     boardStore.addColumn(newColumnName.value);
     newColumnName.value = '';
-  }
-
-  function deleteColumn(columnIndex)  {
-    boardStore.deleteColumn(columnIndex);
   }
 </script>
 

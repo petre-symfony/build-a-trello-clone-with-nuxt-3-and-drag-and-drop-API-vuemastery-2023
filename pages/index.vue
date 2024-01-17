@@ -3,7 +3,8 @@
 
   const boardStore = useBoardStore();
 
-  const newColumnName = ref('')
+  const newColumnName = ref('');
+  const editNameState = ref(false);
 
   function addColumn() {
     boardStore.addColumn(newColumnName.value);
@@ -17,8 +18,8 @@
       <UContainer v-for="column in boardStore.board.columns" :key="column.name" class="column">
         <div class="column-header">
           <div>
-            <h2 class="mb-4">{{ column.name }}</h2>
-            <UInput type="text" v-model="column.name" />
+            <UInput v-if="editNameState" type="text" v-model="column.name" />
+            <h2 v-else class="mb-4">{{ column.name }}</h2>
           </div>
           <div>
             <button>Edit</button>

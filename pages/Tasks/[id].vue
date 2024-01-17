@@ -3,5 +3,9 @@
 </script>
 
 <template>
-  <h1>Page: {{ route.params.id }}</h1>
+  <div class="task-wrapper">
+    <div class="task-view">
+      <h1>Page: {{ route.params.id }}</h1>
+    </div>
+  </div>
 </template>

@@ -5,6 +5,10 @@
 
   const newColumnName = ref('');
 
+  const route = useRoute();
+
+  const isModalOpen = ref(false);
+  
   function addColumn() {
     boardStore.addColumn(newColumnName.value);
     newColumnName.value = '';
@@ -30,8 +34,8 @@
         />
       </UContainer>
     </main>
-    <div class="task-bg">
-      <NuxtPage />
+    <div v-show="isModalOpen" class="task-bg">
+      <NuxtPage :key="route.fullPath"/>
     </div>
   </div>
 </template>

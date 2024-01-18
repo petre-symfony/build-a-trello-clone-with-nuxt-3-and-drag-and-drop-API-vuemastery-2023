@@ -34,7 +34,8 @@
   }
 
   function pickupTask(event) {
-    console.log(event)
+    event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.dropEffect = 'move';
   }
 </script>
 

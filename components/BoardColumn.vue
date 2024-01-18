@@ -55,7 +55,7 @@
     </div>
     <ul>
       <li v-for="task in column.tasks" :key="task.id">
-        <UCard class="mb-4" @click="goToTask(task.id)">
+        <UCard class="mb-4" @click="goToTask(task.id)" draggable="true">
           <strong>{{ task.name }}</strong>
           <p>{{ task.description }}</p>
         </UCard>

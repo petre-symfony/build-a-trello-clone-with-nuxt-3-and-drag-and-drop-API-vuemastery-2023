@@ -7,7 +7,7 @@
   const task = computed(() => boardStore.getTask(route.params.id))
 
   function deleteTask() {
-    boardStore.deleteTask(taskId);
+    boardStore.deleteTask(route.params.id);
   }
 </script>
 

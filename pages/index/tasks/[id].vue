@@ -10,8 +10,12 @@
 <template>
   <div class="task-wrapper">
     <div class="task-view">
-      <UInput type="text" v-model="task.name"/>
-      <UTextarea v-model="task.description">{{ task.description }}</UTextarea>
+      <UFormGroup label="name" class="mb-4 w-full">
+        <UInput type="text" v-model="task.name"/>
+      </UFormGroup>
+      <UFormGroup label="description" class="w-full">
+        <UTextarea v-model="task.description" />
+      </UFormGroup>
     </div>
   </div>
 </template>

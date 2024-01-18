@@ -34,7 +34,9 @@
   }
 
   function dropTask(event) {
-    console.log(event);
+    const fromColumnIndex = event.dataTransfer.getData('from-column-index');
+    const fromTaskIndex = event.dataTransfer.getData('from-task-index');
+    console.log({fromColumnIndex, fromTaskIndex});
   }
 
   function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {

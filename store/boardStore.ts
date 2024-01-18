@@ -4,6 +4,9 @@ import boardData from '~/data/board.json';
 
 export const useBoardStore = defineStore('boardStore', () => {
   const board = useStorage('board', boardData);
+  /*
+  * Tasks
+   */
   const getTask = computed(() => {
     return taskId => {
       for (const column of board.value.columns) {
@@ -15,7 +18,17 @@ export const useBoardStore = defineStore('boardStore', () => {
     }
   })
 
+  function addTask(taskName) {
+    board.value.columns[columnIndex].push({
+      id: '',
+      name: taskName,
+      description: ''
+    });
+  }
 
+  /*
+  * Columns
+   */
   function addColumn(columnName) {
     board.value.columns.push({
       name: columnName,

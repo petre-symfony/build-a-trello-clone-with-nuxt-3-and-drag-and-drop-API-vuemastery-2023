@@ -13,9 +13,14 @@
       <UFormGroup label="name" class="mb-4 w-full">
         <UInput type="text" v-model="task.name"/>
       </UFormGroup>
-      <UFormGroup label="description" class="w-full">
+      <UFormGroup label="description" class="mb-4 w-full">
         <UTextarea v-model="task.description" />
       </UFormGroup>
+      <UButton
+          icon="i-heroicons-trash"
+          color="red"
+          @click="deleteTask(taskId)"
+      >Delete task</UButton>
     </div>
   </div>
 </template>

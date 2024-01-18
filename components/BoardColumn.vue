@@ -32,6 +32,10 @@
     });
     newTaskName.value = '';
   }
+
+  function pickupTask(event) {
+    console.log(event)
+  }
 </script>
 
 <template>
@@ -55,7 +59,12 @@
     </div>
     <ul>
       <li v-for="task in column.tasks" :key="task.id">
-        <UCard class="mb-4" @click="goToTask(task.id)" draggable="true">
+        <UCard
+            class="mb-4"
+            @click="goToTask(task.id)"
+            draggable="true"
+            @dragstart="pickupTask($event)"
+        >
           <strong>{{ task.name }}</strong>
           <p>{{ task.description }}</p>
         </UCard>

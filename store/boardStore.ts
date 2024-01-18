@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { useStorage } from "@vueuse/core";
 import boardData from '~/data/board.json';
+import { v4 as uuid } from "uuid";
 
 export const useBoardStore = defineStore('boardStore', () => {
   const board = useStorage('board', boardData);
@@ -18,9 +19,9 @@ export const useBoardStore = defineStore('boardStore', () => {
     }
   })
 
-  function addTask(taskName) {
+  function addTask({ columnIndex, taskName }) {
     board.value.columns[columnIndex].push({
-      id: '',
+      id: uuid(),
       name: taskName,
       description: ''
     });
@@ -41,9 +42,13 @@ export const useBoardStore = defineStore('boardStore', () => {
   }
 
   return {
+    /* State */
     board,
+    /* Getters */
     getTask,
+    /* Actions */
     addColumn,
-    deleteColumn
+    deleteColumn,
+    addTask
   }
 })

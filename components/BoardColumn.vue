@@ -1,7 +1,7 @@
 <script setup>
  import { useBoardStore } from "~/store/boardStore";
 
-  defineProps({
+  const props = defineProps({
     column: {
       type: Object,
       requireed: true
@@ -26,7 +26,10 @@
   }
 
   function addTask() {
-    useBoardStore.addTask(newTaskName.value);
+    boardStore.addTask({
+      taskName: newTaskName.value,
+      columnIndex: props.columnIndex
+    });
     newTaskName.value = '';
   }
 </script>

@@ -20,7 +20,7 @@ export const useBoardStore = defineStore('boardStore', () => {
   })
 
   function addTask({ columnIndex, taskName }) {
-    board.value.columns[columnIndex].push({
+    board.value.columns[columnIndex].tasks.push({
       id: uuid(),
       name: taskName,
       description: ''

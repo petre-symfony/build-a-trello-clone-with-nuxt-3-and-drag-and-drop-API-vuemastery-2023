@@ -10,8 +10,8 @@
 <template>
   <div class="task-wrapper">
     <div class="task-view">
-      <h1>{{ task.name }}</h1>
-      <p>{{ task.description }}</p>
+      <UInput type="text" v-model="task.name"/>
+      <UTextarea v-model="task.description">{{ task.description }}</UTextarea>
     </div>
   </div>
 </template>

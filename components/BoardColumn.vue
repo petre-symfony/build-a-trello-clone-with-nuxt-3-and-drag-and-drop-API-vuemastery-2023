@@ -14,6 +14,7 @@
 
   const boardStore = useBoardStore();
   const editNameState = ref(false);
+  const newTaskName = ref('');
   const router = useRouter();
 
   function deleteColumn(columnIndex)  {
@@ -22,6 +23,11 @@
 
   function goToTask(taskId) {
     router.push(`/tasks/${taskId}`);
+  }
+
+  function addTask() {
+    useBoardStore.addTask(newTaskName.value);
+    newTaskName.value = '';
   }
 </script>
 
@@ -52,5 +58,12 @@
         </UCard>
       </li>
     </ul>
+    <UInput
+        v-model="newTaskName"
+        type="text"
+        placeholder="Create new task"
+        icon="i-heroicons-plus-circle-solid"
+        @keyup.enter="addTask"
+    />
   </UContainer>
 </template>

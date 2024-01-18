@@ -15,6 +15,7 @@ export const useBoardStore = defineStore('boardStore', () => {
     }
   })
 
+
   function addColumn(columnName) {
     board.value.columns.push({
       name: columnName,

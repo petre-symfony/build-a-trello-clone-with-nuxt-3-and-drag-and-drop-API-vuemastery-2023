@@ -44,7 +44,12 @@
 </script>
 
 <template>
-  <UContainer class="column" @drop="dropTask($event)">
+  <UContainer
+      class="column"
+      @dragenter.prevent
+      @dragover.prevent
+      @drop.stop="dropTask($event)"
+  >
     <div class="column-header mb-4">
       <div>
         <UInput v-if="editNameState" type="text" v-model="column.name" />

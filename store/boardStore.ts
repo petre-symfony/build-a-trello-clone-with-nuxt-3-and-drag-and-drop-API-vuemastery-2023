@@ -56,6 +56,16 @@ export const useBoardStore = defineStore('boardStore', () => {
     board.value.columns.splice(columnIndex, 1);
   }
 
+  function moveTask({
+    taskIndex,
+    fromColumnIndex,
+    toColumnIndex
+  }) {
+    const task =
+      board.value.columns[fromColumnIndex].tasks.splice(taskIndex, 1)[0];
+    board.value.columns[toColumnIndex].tasks.push(task);
+  }
+
   return {
     /* State */
     board,
@@ -65,6 +75,7 @@ export const useBoardStore = defineStore('boardStore', () => {
     addColumn,
     deleteColumn,
     addTask,
-    deleteTask
+    deleteTask,
+    moveTask
   }
 })

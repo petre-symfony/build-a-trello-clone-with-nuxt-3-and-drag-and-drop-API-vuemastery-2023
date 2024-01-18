@@ -33,10 +33,16 @@
     newTaskName.value = '';
   }
 
-  function dropTask(event) {
+  function dropTask(event, toColumnIndex) {
     const fromColumnIndex = event.dataTransfer.getData('from-column-index');
     const fromTaskIndex = event.dataTransfer.getData('from-task-index');
     console.log({fromColumnIndex, fromTaskIndex});
+
+    boardStore.moveTask({
+      taskIndex: fromTaskIndex,
+      fromColumnIndex,
+      toColumnIndex
+    });
   }
 
   function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {
@@ -52,7 +58,7 @@
       class="column"
       @dragenter.prevent
       @dragover.prevent
-      @drop.stop="dropTask($event)"
+      @drop.stop="dropTask($event, toColumnIndex)"
   >
     <div class="column-header mb-4">
       <div>

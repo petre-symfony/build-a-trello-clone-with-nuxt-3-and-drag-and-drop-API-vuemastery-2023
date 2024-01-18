@@ -5,6 +5,10 @@
   const boardStore = useBoardStore();
 
   const task = computed(() => boardStore.getTask(route.params.id))
+
+  function deleteTask() {
+    boardStore.deleteTask(taskId);
+  }
 </script>
 
 <template>
@@ -19,7 +23,7 @@
       <UButton
           icon="i-heroicons-trash"
           color="red"
-          @click="deleteTask(taskId)"
+          @click="deleteTask"
       >Delete task</UButton>
     </div>
   </div>

@@ -33,15 +33,19 @@
     newTaskName.value = '';
   }
 
-  function dropTask(event, toColumnIndex) {
-    const fromColumnIndex = event.dataTransfer.getData('from-column-index');
-    const fromTaskIndex = event.dataTransfer.getData('from-task-index');
+  function dropItem(event, toColumnIndex) {
+    const type = event.dataTransfer.getData('type');
 
-    boardStore.moveTask({
-      taskIndex: fromTaskIndex,
-      fromColumnIndex,
-      toColumnIndex
-    });
+    if (type === 'task') {
+      const fromColumnIndex = event.dataTransfer.getData('from-column-index');
+      const fromTaskIndex = event.dataTransfer.getData('from-task-index');
+
+      boardStore.moveTask({
+        taskIndex: fromTaskIndex,
+        fromColumnIndex,
+        toColumnIndex
+      });
+    }
   }
 
   function pickupColumn(event) {
@@ -52,6 +56,7 @@
   function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.setData('type', 'task');
     event.dataTransfer.setData('from-column-index', fromColumnIndex);
     event.dataTransfer.setData('from-task-index', fromTaskIndex)
   }
@@ -64,7 +69,7 @@
       @dragstart.self="pickupColumn($event)"
       @dragenter.prevent
       @dragover.prevent
-      @drop.stop="dropTask($event, columnIndex)"
+      @drop.stop="dropItem($event, columnIndex)"
   >
     <div class="column-header mb-4">
       <div>

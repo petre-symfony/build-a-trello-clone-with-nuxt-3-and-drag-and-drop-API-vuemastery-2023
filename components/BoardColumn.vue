@@ -35,9 +35,9 @@
 
   function dropItem(event, toColumnIndex) {
     const type = event.dataTransfer.getData('type');
+    const fromColumnIndex = event.dataTransfer.getData('from-column-index');
 
     if (type === 'task') {
-      const fromColumnIndex = event.dataTransfer.getData('from-column-index');
       const fromTaskIndex = event.dataTransfer.getData('from-task-index');
 
       boardStore.moveTask({
@@ -45,12 +45,19 @@
         fromColumnIndex,
         toColumnIndex
       });
+    } else if (type === 'column') {
+      boardStore.moveColumn({
+        fromColumnIndex,
+        toColumnIndex
+      });
     }
   }
 
-  function pickupColumn(event) {
+  function pickupColumn(event, fromcolumnIndex) {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.setData('type', 'column');
+    event.dataTransfer.setData('from-column-index', fromColumnIndex);
   }
 
   function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {
@@ -66,7 +73,7 @@
   <UContainer
       class="column"
       draggable="true"
-      @dragstart.self="pickupColumn($event)"
+      @dragstart.self="pickupColumn($event, columnIndex)"
       @dragenter.prevent
       @dragover.prevent
       @drop.stop="dropItem($event, columnIndex)"

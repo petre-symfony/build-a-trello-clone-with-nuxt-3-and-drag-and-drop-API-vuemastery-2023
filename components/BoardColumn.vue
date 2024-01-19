@@ -44,6 +44,11 @@
     });
   }
 
+  function pickupColumn(event) {
+    event.dataTransfer.effectAllowed = 'move';
+    event.dataTransfer.dropEffect = 'move';
+  }
+
   function pickupTask(event, { fromColumnIndex, fromTaskIndex }) {
     event.dataTransfer.effectAllowed = 'move';
     event.dataTransfer.dropEffect = 'move';
@@ -55,6 +60,8 @@
 <template>
   <UContainer
       class="column"
+      draggable="true"
+      @dragstart.self="pickupColumn($event)"
       @dragenter.prevent
       @dragover.prevent
       @drop.stop="dropTask($event, columnIndex)"

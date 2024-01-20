@@ -105,6 +105,10 @@
               fromColumnIndex: columnIndex,
               fromTaskIndex: taskIndex
             })"
+            @drop.stop="dropItem($event, {
+              toColumnIndex: columnIndex,
+              toTaskIndex: taskIndex
+            })"
         >
           <strong>{{ task.name }}</strong>
           <p>{{ task.description }}</p>

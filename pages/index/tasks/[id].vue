@@ -11,7 +11,9 @@
   function deleteTask() {
     toast.add({
       title: 'Task deleted',
-      description: `${task.value.name} has been deleted.`
+      description: `${task.value.name} has been deleted.`,
+      icon: 'i-heroicons-trash',
+      color: "red"
     });
     boardStore.deleteTask(route.params.id);
     router.push('/');
